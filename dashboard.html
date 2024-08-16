@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<link rel="stylesheet" href="dashboard.css">
+<body>
+
+    <nav>
+
+        <h1>Dashboard</h1>
+
+        <!-- <a href="index.html">Log Out</a> -->
+
+        <button id="out">Log Out</button>
+
+    </nav>
+
+    <div class="main">
+
+        <div class="center">
+
+            <h1>Welcome</h1>
+            <!-- <p id="para"></p> -->
+
+            <h3 id="para"></h3>
+
+        </div>
+
+    </div>
+
+
+
+    <script type="module">
+
+
+     let out = document.getElementById('out')
+
+        let text = document.getElementById('para');
+
+        text.innerText = ``;
+
+ 
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDbolhohU87YZ6O5gBgfHH57dwOX_RcyyI",
+    authDomain: "myportfolio-c6266.firebaseapp.com",
+    projectId: "myportfolio-c6266",
+    storageBucket: "myportfolio-c6266.appspot.com",
+    messagingSenderId: "1073456922405",
+    appId: "1:1073456922405:web:3c919e2d429d31f820a4cc"
+  };
+
+
+        const analytics = getAnalytics(app);
+      
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  import { signOut } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+out.addEventListener('click' , function(){
+
+
+
+      
+
+        const auth = getAuth(app);
+
+        signOut(auth).then(() => {
+
+
+           window.location.href = 'login.html';
+
+
+            // Sign-out successful.
+        }).catch((error) => {
+
+        
+
+            Swal.fire("Failed to SignOut");
+            // An error happened.
+        });
+
+})
+       
+
+
+         
+           
+
+
+
+
+    </script>
+
+</body>
+
+</html>
